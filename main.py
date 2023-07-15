@@ -19,7 +19,8 @@ def make_request(url):
     return output
 
 def get_ip():
-    out_put = make_request('https://api.ipgeolocation.io/ipgeo?apiKey=c5353e5225f64d51895f9dde3389ca97')
+    API_KEY =''
+    out_put = make_request(f'https://api.ipgeolocation.io/ipgeo?apiKey={API_KEY}')
     ip_address = json.loads(out_put)
     #display(IP['ip'], target="location")
     return(ip_address)
@@ -28,7 +29,7 @@ def get_ip():
 def get_weather():
     lat = get_ip()['latitude']
     lon =  get_ip()['longitude']
-    API_key =  '47e28d589c912d35b8aed44a6681c3c2'
+    API_key =  ''
     out_put = make_request(f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_key}')
     weather = json.loads(out_put)
     return weather
